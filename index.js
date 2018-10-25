@@ -33,13 +33,12 @@ function getParisTeamNews () {
       resolve('All is fine')
     })
   }).then(() => {
-    // console.log(news.slice(3))
-    // console.log(news.length)
+    console.clear()
     _.each(news, (value, key) => {
       if (key < 3) {
         console.log(chalk.hex('#4E7C46')(value.title))
-        console.log(chalk.hex('3381C1')(value.link))
         console.log(chalk.hex('#E4E3E5')(value.description))
+        console.log(chalk.hex('3381C1')(value.link))
       }
     })
     console.log(chalk.hex('#FFF')('░░░░░░░░░░░░░'))
@@ -48,6 +47,6 @@ function getParisTeamNews () {
   })
 }
 
-cron.schedule('* * * * * *', function () {
+cron.schedule('* 0,10,20,30,40,40,50 * * * *', function () {
   getParisTeamNews()
 })
